@@ -1,6 +1,6 @@
 $schema: "http://json-schema.org/draft-06/schema#"
 
-title: networksecurity v1alpha1 SecurityProfile export schema
+title: networksecurity v1beta1 SecurityProfileGroup export schema
 description: A gcloud export/import command YAML validation schema.
 type: object
 additionalProperties: false
@@ -26,26 +26,19 @@ properties:
     items:
       type: string
   description:
-    description: |-
-      An optional description of the profile. Max length 512 characters.
+    description: An optional description of the profile group.
     type: string
   labels:
     description: Labels as key value pairs.
     $ref: LabelsValue.yaml
   name:
     description: |-
-      Immutable. Name of the SecurityProfile resource. It matches pattern
-      `projects|organizations/*/locations/{location}/securityProfiles/{securit
-      y_profile}`.
+      Immutable. Name of the SecurityProfileGroup resource. It matches pattern
+      `projects|organizations/*/locations/{location}/securityProfileGr
+      oups/{security_profile_group}`.
     type: string
   threatPreventionProfile:
-    description: The threat prevention configuration for the SecurityProfile.
-    $ref: ThreatPreventionProfile.yaml
-  type:
     description: |-
-      Immutable. The single ProfileType that the SecurityProfile resource
-      configures.
+      Reference to a SecurityProfile with the threat prevention configuration
+      for the SecurityProfileGroup.
     type: string
-    enum:
-    - PROFILE_TYPE_UNSPECIFIED
-    - THREAT_PREVENTION

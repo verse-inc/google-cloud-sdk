@@ -1,6 +1,6 @@
 $schema: "http://json-schema.org/draft-06/schema#"
 
-title: networksecurity v1alpha1 SecurityProfileGroup export schema
+title: networksecurity v1beta1 ThreatOverride export schema
 description: A gcloud export/import command YAML validation schema.
 type: object
 additionalProperties: false
@@ -25,21 +25,17 @@ properties:
     description: Unknown API fields that cannot be imported.
     items:
       type: string
-  description:
+  action:
     description: |-
-      An optional description of the profile group. Max length 2048 characters.
+      Threat action override. For some threat types, only a subset of actions
+      applies.
     type: string
-  labels:
-    description: Labels as key value pairs.
-    $ref: LabelsValue.yaml
-  name:
-    description: |-
-      Immutable. Name of the SecurityProfileGroup resource. It matches pattern
-      `projects|organizations/*/locations/{location}/securityProfileGr
-      oups/{security_profile_group}`.
-    type: string
-  threatPreventionProfile:
-    description: |-
-      Reference to a SecurityProfile with the threat prevention configuration
-      for the SecurityProfileGroup.
+    enum:
+    - ALERT
+    - ALLOW
+    - DEFAULT_ACTION
+    - DENY
+    - THREAT_ACTION_UNSPECIFIED
+  threatId:
+    description: Vendor-specific ID of a threat to override.
     type: string

@@ -1,8 +1,10 @@
 $schema: "http://json-schema.org/draft-06/schema#"
 
-title: networksecurity v1alpha1 SecurityProfile export schema
+title: networksecurity v1 GatewaySecurityPolicy export schema
 description: A gcloud export/import command YAML validation schema.
 type: object
+required:
+- name
 additionalProperties: false
 properties:
   COMMENT:
@@ -26,26 +28,17 @@ properties:
     items:
       type: string
   description:
-    description: |-
-      An optional description of the profile. Max length 512 characters.
+    description: Free-text description of the resource.
     type: string
-  labels:
-    description: Labels as key value pairs.
-    $ref: LabelsValue.yaml
   name:
     description: |-
-      Immutable. Name of the SecurityProfile resource. It matches pattern
-      `projects|organizations/*/locations/{location}/securityProfiles/{securit
-      y_profile}`.
+      Name of the resource. Name is of the form projects/{projec
+      t}/locations/{location}/gatewaySecurityPolicies/{gateway_security_policy }
+      gateway_security_policy should match the
+      pattern:(^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$).
     type: string
-  threatPreventionProfile:
-    description: The threat prevention configuration for the SecurityProfile.
-    $ref: ThreatPreventionProfile.yaml
-  type:
+  tlsInspectionPolicy:
     description: |-
-      Immutable. The single ProfileType that the SecurityProfile resource
-      configures.
+      Name of a TLS Inspection Policy resource that defines how TLS inspection
+      will be performed for any rule(s) which enables it.
     type: string
-    enum:
-    - PROFILE_TYPE_UNSPECIFIED
-    - THREAT_PREVENTION

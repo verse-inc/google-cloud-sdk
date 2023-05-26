@@ -1,8 +1,11 @@
 $schema: "http://json-schema.org/draft-06/schema#"
 
-title: networksecurity v1alpha1 SecurityProfileGroup export schema
+title: networksecurity v1 UrlList export schema
 description: A gcloud export/import command YAML validation schema.
 type: object
+required:
+- name
+- values
 additionalProperties: false
 properties:
   COMMENT:
@@ -26,20 +29,16 @@ properties:
     items:
       type: string
   description:
-    description: |-
-      An optional description of the profile group. Max length 2048 characters.
+    description: Free-text description of the resource.
     type: string
-  labels:
-    description: Labels as key value pairs.
-    $ref: LabelsValue.yaml
   name:
     description: |-
-      Immutable. Name of the SecurityProfileGroup resource. It matches pattern
-      `projects|organizations/*/locations/{location}/securityProfileGr
-      oups/{security_profile_group}`.
+      Name of the resource provided by the user. Name is of the form
+      projects/{project}/locations/{location}/urlLists/{url_list} url_list
+      should match the pattern:(^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$).
     type: string
-  threatPreventionProfile:
-    description: |-
-      Reference to a SecurityProfile with the threat prevention configuration
-      for the SecurityProfileGroup.
-    type: string
+  values:
+    description: FQDNs and URLs.
+    type: array
+    items:
+      type: string

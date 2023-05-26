@@ -1121,28 +1121,30 @@ class _SectionApiEndpointOverrides(_Section):
         'accessapproval', command='gcloud access-approval')
     self.accesscontextmanager = self._Add(
         'accesscontextmanager', command='gcloud access-context-manager')
-    self.alloydb = self._Add('alloydb', command='gcloud alloydb', hidden=True)
-    self.anthosevents = self._Add('anthosevents', command='gcloud anthos')
     self.ai = self._Add('ai', command='gcloud ai')
     self.aiplatform = self._Add('aiplatform', command='gcloud ai-platform')
+    self.alloydb = self._Add('alloydb', command='gcloud alloydb', hidden=True)
+    self.anthosevents = self._Add('anthosevents', command='gcloud anthos')
     self.anthospolicycontrollerstatus_pa = self._Add(
         'anthospolicycontrollerstatus_pa',
         command='gcloud container fleet policycontroller')
     self.apigateway = self._Add('apigateway', command='gcloud api-gateway')
     self.apigee = self._Add('apigee', command='gcloud apigee')
     self.appengine = self._Add('appengine', command='gcloud app')
+    self.apphub = self._Add('apphub', command='gcloud apphub')
+    self.artifactregistry = self._Add(
+        'artifactregistry', command='gcloud artifacts')
     self.assuredworkloads = self._Add(
         'assuredworkloads', command='gcloud assured')
     self.baremetalsolution = self._Add(
         'baremetalsolution', command='gcloud bms')
     self.batch = self._Add('batch', command='gcloud batch', hidden=True)
+    self.beyondcorp = self._Add('beyondcorp', hidden=True)
     self.bigquery = self._Add('bigquery', hidden=True)
     self.bigtableadmin = self._Add('bigtableadmin', command='gcloud bigtable')
     self.binaryauthorization = self._Add(
         'binaryauthorization', command='gcloud container binauthz', hidden=True)
     self.blueprints = self._Add('config', command='gcloud blueprints')
-    self.artifactregistry = self._Add(
-        'artifactregistry', command='gcloud artifacts')
     self.categorymanager = self._Add('categorymanager', hidden=True)
     self.certificatemanager = self._Add(
         'certificatemanager', command='gcloud certificate-manager')
@@ -1210,9 +1212,10 @@ class _SectionApiEndpointOverrides(_Section):
     self.gkehub = self._Add('gkehub', hidden=True)
     self.gkemulticloud = self._Add(
         'gkemulticloud',
-        help_text=('Overrides API endpoint for `gcloud container aws`, '
-                   '`gcloud container azure` and `gcloud container attached` '
-                   'command groups. '))
+        help_text='Overrides API endpoint for `gcloud container aws`, '
+        '`gcloud container azure` and `gcloud container attached` '
+        'command groups.'
+    )
     # TODO(b/236427906): Unhide after gcloud client releases to GA.
     self.gkeonprem = self._Add('gkeonprem', hidden=True)
     self.healthcare = self._Add('healthcare', command='gcloud healthcare')
@@ -1220,8 +1223,8 @@ class _SectionApiEndpointOverrides(_Section):
     self.iamcredentials = self._Add('iamcredentials', command='gcloud iam')
     self.iap = self._Add('iap', command='gcloud iap')
     self.ids = self._Add('ids', command='gcloud ids')
-    self.krmapihosting = self._Add('krmapihosting',
-                                   command='gcloud anthos config controller')
+    self.krmapihosting = self._Add(
+        'krmapihosting', command='gcloud anthos config controller')
     self.kubernetespolicy = self._Add('kubernetespolicy', hidden=True)
     self.language = self._Add('language', command='gcloud ml language')
     self.lifesciences = self._Add('lifesciences', command='gcloud lifesciences')
@@ -1234,9 +1237,8 @@ class _SectionApiEndpointOverrides(_Section):
         'marketplacesolutions', command='gcloud mps')
     self.mediaasset = self._Add('mediaasset', command='gcloud media')
     self.memcache = self._Add('memcache', command='gcloud memcache')
-    self.messagestreams = self._Add('messagestreams',
-                                    command='gcloud messagestreams',
-                                    hidden=True)
+    self.messagestreams = self._Add(
+        'messagestreams', command='gcloud messagestreams', hidden=True)
     self.metastore = self._Add('metastore', command='gcloud metastore')
     self.ml = self._Add('ml', hidden=True)
     self.monitoring = self._Add('monitoring', command='gcloud monitoring')
@@ -1245,10 +1247,10 @@ class _SectionApiEndpointOverrides(_Section):
         'networkconnectivity', command='gcloud network-connectivity')
     self.networkmanagement = self._Add(
         'networkmanagement', command='gcloud network-management')
-    self.networkservices = self._Add(
-        'networkservices', command='gcloud network-services')
     self.networksecurity = self._Add(
         'networksecurity', command='gcloud network-security')
+    self.networkservices = self._Add(
+        'networkservices', command='gcloud network-services')
     self.notebooks = self._Add('notebooks', command='gcloud notebooks')
     self.ondemandscanning = self._Add('ondemandscanning', hidden=True)
     self.orgpolicy = self._Add('orgpolicy', command='gcloud org-policies')
@@ -1262,29 +1264,33 @@ class _SectionApiEndpointOverrides(_Section):
     self.publicca = self._Add('publicca', command='gcloud publicca')
     self.pubsub = self._Add('pubsub', command='gcloud pubsub')
     self.pubsublite = self._Add('pubsublite', hidden=True)
+    self.recaptcha = self._Add(
+        'recaptchaenterprise', command='gcloud recaptcha')
     self.recommender = self._Add('recommender', command='gcloud recommender')
+    self.redis = self._Add('redis', command='gcloud redis')
     self.remotebuildexecution = self._Add('remotebuildexecution', hidden=True)
     self.replicapoolupdater = self._Add('replicapoolupdater', hidden=True)
     self.resourcesettings = self._Add(
         'resourcesettings', command='gcloud resource-settings')
-    self.runtimeconfig = self._Add(
-        'runtimeconfig', command='gcloud runtime-config')
-    self.recaptcha = self._Add(
-        'recaptchaenterprise', command='gcloud recaptcha')
-    self.redis = self._Add('redis', command='gcloud redis')
     self.run = self._Add('run', command='gcloud run')
     self.runapps = self._Add('runapps', hidden=True)
+    self.runtimeconfig = self._Add(
+        'runtimeconfig', command='gcloud runtime-config')
     self.sasportal = self._Add('sasportal', hidden=True)
     self.scc = self._Add('securitycenter', command='gcloud scc')
+    self.sddc = self._Add('sddc', command='gcloud vmware sddc')
+    self.secrets = self._Add('secretmanager', command='gcloud secrets')
+    self.securedlandingzone = self._Add(
+        'securedlandingzone', hidden=True, command='gcloud scc slz-overwatch')
+    self.securesourcemanager = self._Add('securesourcemanager', hidden=True)
+    self.servicedirectory = self._Add(
+        'servicedirectory', command='gcloud service-directory')
     self.servicemanagement = self._Add(
         'servicemanagement', command='gcloud endpoints')
     self.serviceregistry = self._Add('serviceregistry', hidden=True)
     self.serviceusage = self._Add('serviceusage', hidden=True)
     self.source = self._Add('source', hidden=True)
     self.sourcerepo = self._Add('sourcerepo', command='gcloud source')
-    self.secrets = self._Add('secretmanager', command='gcloud secrets')
-    self.servicedirectory = self._Add(
-        'servicedirectory', command='gcloud service-directory')
     self.spanner = self._Add(
         'spanner',
         help_text='Overrides API endpoint for `gcloud spanner` command group. '
@@ -1295,28 +1301,23 @@ class _SectionApiEndpointOverrides(_Section):
     self.sql = self._Add('sql', command='gcloud sql')
     self.storage = self._Add('storage', command='gcloud storage')
     self.storageinsights = self._Add(
-        'storageinsights',
-        command='gcloud storage insights',
-        hidden=True)
+        'storageinsights', command='gcloud storage insights', hidden=True)
     self.stream = self._Add('stream', hidden=True)
     self.telcoautomation = self._Add('telcoautomation', hidden=True)
+    self.telecomdatafabric = self._Add('telecomdatafabric', hidden=True)
     self.testing = self._Add('testing', command='gcloud firebase test')
     self.toolresults = self._Add('toolresults', hidden=True)
     self.tpu = self._Add('tpu', hidden=True)
     # Aliased to `storagetransfer` in `api_lib/apis/apis_util.py`.
     self.transfer = self._Add('transfer', command='gcloud transfer')
     self.vision = self._Add('vision', command='gcloud ml vision')
+    self.vmwareengine = self._Add('vmwareengine', command='gcloud vmware')
     self.vpcaccess = self._Add('vpcaccess', hidden=True)
     self.workflowexecutions = self._Add(
         'workflowexecutions', command='gcloud workflows executions')
     self.workflows = self._Add('workflows', command='gcloud workflows')
-    self.sddc = self._Add('sddc', command='gcloud vmware sddc')
-    self.vmwareengine = self._Add('vmwareengine', command='gcloud vmware')
-    self.beyondcorp = self._Add('beyondcorp', hidden=True)
-    self.securedlandingzone = self._Add(
-        'securedlandingzone', hidden=True, command='gcloud scc slz-overwatch')
-    self.securesourcemanager = self._Add('securesourcemanager', hidden=True)
     self.workloadcertificate = self._Add('workloadcertificate', hidden=True)
+    self.workstations = self._Add('workstations', hidden=True)
 
   def EndpointValidator(self, value):
     """Checks to see if the endpoint override string is valid."""
@@ -1349,7 +1350,7 @@ class _SectionApiEndpointOverrides(_Section):
     if api:
       for api_version in api:
         api_def = api.get(api_version)
-        if api_def.default_version:
+        if api_def.default_version and api_def.apitools:
           return api_def.apitools.base_url
 
 
@@ -2924,10 +2925,10 @@ class _SectionMps(_Section):
 
   def __init__(self):
     super(_SectionMps, self).__init__('mps')
-    self.vendor = self._Add(
-        'vendor',
+    self.product = self._Add(
+        'product',
         default=None,
-        help_text='Id for Marketplace Solutions Vendor. '
+        help_text='Id for Marketplace Solutions Product. '
         )
 
 
@@ -3313,6 +3314,31 @@ class _SectionStorage(_Section):
         default=2,
         help_text='Used in exponential backoff for retrying operations.')
 
+    self.gs_xml_endpoint_url = self._Add(
+        'gs_xml_endpoint_url',
+        default='https://storage.googleapis.com',
+        hidden=True,
+        help_text='The endpoint used to Google Cloud Storage when HMAC '
+        'authentication through Boto3.')
+
+    self.gs_xml_access_key_id = self._Add(
+        'gs_xml_access_key_id',
+        default=None,
+        hidden=True,
+        help_text='Legacy Cloud Storage HMAC credential access key ID.'
+        'WARNING: This in conjunction with storage/gs_xml_secret_access_key '
+        'forces gcloud storage to use the XML API to call Cloud Storage, '
+        'which means not all commands will work as expected.')
+
+    self.gs_xml_secret_access_key = self._Add(
+        'gs_xml_secret_access_key',
+        default=None,
+        hidden=True,
+        help_text='Legacy Cloud Storage HMAC credential secret access key.'
+        'WARNING: This in conjunction with storage/gs_xml_access_key_id '
+        'forces gcloud storage to use the XML API to call Cloud Storage, '
+        'which means not all commands will work as expected.')
+
     self.json_api_version = self._Add(
         'json_api_version',
         hidden=True,
@@ -3453,6 +3479,18 @@ class _SectionStorage(_Section):
         default=True,
         help_text='If True, logs messages about when Storage Transfer Service'
         ' might be a better tool than gcloud storage.')
+
+    self.symlink_placeholder_directory = self._Add(
+        'symlink_placeholder_directory',
+        default=os.path.join(
+            config.Paths().global_config_dir,
+            'surface_data',
+            'storage',
+            'symlink_placeholders',
+        ),
+        help_text='Directory path to temporary symlink placeholder files.',
+        hidden=True,
+    )
 
     self.tracker_files_directory = self._Add(
         'tracker_files_directory',

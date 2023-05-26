@@ -1,6 +1,6 @@
 $schema: "http://json-schema.org/draft-06/schema#"
 
-title: networksecurity v1alpha1 SecurityProfile export schema
+title: networksecurity v1beta1 SecurityProfile export schema
 description: A gcloud export/import command YAML validation schema.
 type: object
 additionalProperties: false
@@ -26,8 +26,7 @@ properties:
     items:
       type: string
   description:
-    description: |-
-      An optional description of the profile. Max length 512 characters.
+    description: An optional description of the profile.
     type: string
   labels:
     description: Labels as key value pairs.

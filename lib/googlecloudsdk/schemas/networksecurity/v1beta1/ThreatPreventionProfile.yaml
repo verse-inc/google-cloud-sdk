@@ -1,6 +1,6 @@
 $schema: "http://json-schema.org/draft-06/schema#"
 
-title: compute v1 RequestMirrorPolicy export schema
+title: networksecurity v1beta1 ThreatPreventionProfile export schema
 description: A gcloud export/import command YAML validation schema.
 type: object
 additionalProperties: false
@@ -25,11 +25,16 @@ properties:
     description: Unknown API fields that cannot be imported.
     items:
       type: string
-  backendService:
+  severityOverrides:
+    description: Configuration for overriding threats actions by severity match.
+    type: array
+    items:
+      $ref: SeverityOverride.yaml
+  threatOverrides:
     description: |-
-      The full or partial URL to the BackendService resource being mirrored to.
-      The backend service configured for a mirroring policy must reference
-      backends that are of the same type as the original backend service matched
-      in the URL map. Serverless NEG backends are not currently supported as a
-      mirrored backend service.
-    type: string
+      Configuration for overriding threats actions by threat_id match. If a
+      threat is matched both by configuration provided in severity_overrides
+      and threat_overrides, the threat_overrides action is applied.
+    type: array
+    items:
+      $ref: ThreatOverride.yaml
